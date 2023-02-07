@@ -1,4 +1,6 @@
 class User {
+	#users = [];
+
 	constructor(titre, prenom, nom, ville, pays, age, image) {
 		this.titre = titre;
 		this.prenom = prenom;

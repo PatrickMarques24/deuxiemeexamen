@@ -33,6 +33,7 @@ const affichageDesPersonnes = async () => {
 			// Je n'arrive pas a exploiter User.js
 			let objet = [];
 
+			// Je fais en sorte d'afficher le contenu d'un tableau en attendant de pouvoir exploiter User.js
 			res.forEach((personne) => {
 				objet.push({
 					titre: personne.name.title,
@@ -43,6 +44,16 @@ const affichageDesPersonnes = async () => {
 					age: personne.dob.age,
 					image: personne.picture.large,
 				});
+
+				new User(
+					personne.name.title,
+					personne.name.first,
+					personne.name.last,
+					personne.location.city,
+					personne.location.country,
+					personne.dob.age,
+					personne.picture.large
+				);
 			});
 			// Fin de je n'arrive pas à exploiter User.js
 
@@ -60,24 +71,14 @@ const affichageDesPersonnes = async () => {
 
 affichageDesPersonnes();
 
-// PRESENT - NON PRESENT
+// PRESENT - NON PRESENT (tentative)
 const element = document.querySelector("div");
 
 element.addEventListener("click", (e) => {
+	alert("Test");
 	if (e.target.dataset.present === "false") {
 		e.target.dataset.present = true;
 	} else {
 		e.target.dataset.present = false;
 	}
 });
-
-// containerColorButton.addEventListener("click", (e) => {
-// 	if (!e.target.classList.contains("colors")) {
-// 	}
-// });
-
-// //	if (e.target.dataset.done === "false") {
-//     e.target.dataset.done = true;
-// } else {
-//     e.target.dataset.done = false;
-// }
